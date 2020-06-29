@@ -14,15 +14,18 @@ protocol sizeable {
 }
 
 extension sizeable {
-    static func size() -> Int {
+    static var size: Int {
         return MemoryLayout<Self>.size
     }
-    static func stride() -> Int {
+    
+    static var stride: Int {
         return MemoryLayout<Self>.stride
     }
+    
     static func size(_ count: Int) -> Int {
         return MemoryLayout<Self>.size * count
     }
+    
     static func stride(_ count: Int) -> Int {
         return MemoryLayout<Self>.stride * count
     }
